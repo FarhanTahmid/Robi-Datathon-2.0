@@ -135,14 +135,13 @@ y_pred = ann.predict(X)
 
 for cell in np.nditer(y_pred, op_flags=['readwrite']):
     if cell[...] > 0.5:
-      cell[...] = 1
+         cell[...] = 1
     else:
-      cell[...] = 0
+         cell[...] = 0
 
 test2_dataset = pd.read_csv('test.csv')
 test2_dataset['label'] = y_pred
 submission = test2_dataset[["id", "label"]]
-
 submission.to_csv("submission2.csv", index = False)
 
 
